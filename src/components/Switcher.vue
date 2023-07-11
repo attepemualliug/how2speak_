@@ -1,12 +1,12 @@
 <template>
     <div class="Switcher">
-      <b-spinner
-        class="Switcher"
-        variant="success"
-        label="Centered Switcher Text"
-        type="grow"
-      >
-      </b-spinner>
+
+        <b-spinner 
+        variant="success" 
+        type="grow" 
+        label="Spinning">
+
+        </b-spinner>
     </div>
   </template>
   

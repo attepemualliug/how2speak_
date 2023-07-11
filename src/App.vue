@@ -1,5 +1,5 @@
 <style lang="scss">
-@import "@/styles/scss/DarckMod.scss";
+@import "@/style/DarckMod.scss";
 </style>
 <template>
   <div id="app">

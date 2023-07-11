@@ -1,7 +1,7 @@
 <template>
     <div class="language-selector">
       <b-row class="justify-content-center">
-        <span class="mr-2 my-4">
+        <span class="mr-2 my-4" style="width: auto;">
           <strong>From:</strong>
         </span>
         <b-col class="p-0 my-3" col lg="3" md="3" sm="10" cols="9">
@@ -26,12 +26,12 @@
             @click="interchangeLanguages"
             :class="{ btnRotated: btnRotated }"
             :disabled="this.optionTo === null || this.optionFrom === null"
-            class="language__interchange btn disable-btn fa fa-exchange ml-4"
+            class="language__interchange btn disable-btn fa-solid fa-repeat ml-4"
             aria-hidden="true"
           ></button>
         </b-col>
   
-        <span class="mr-2 ml-4 my-4">
+        <span class="mr-2 ml-4 my-4" style="width: auto;">
           <strong>To:</strong>
         </span>
         <b-col class="p-0 my-3" col lg="3" md="3" sm="10" cols="9">
