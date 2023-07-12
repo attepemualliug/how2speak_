@@ -21,7 +21,7 @@
       title: {
         type: String,
         required: false,
-        default: "Select your Language to translate :) "
+        default: "Translate your sentence :)"
       }
     },
     data() {

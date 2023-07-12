@@ -55,6 +55,7 @@ import DelButton from "./DelButton";
 import LangSelector from "./LangSelector";
 import SwitcherTranslation from "./Switcher";
 import DarckMod from "./DarckMod";
+// import { computed } from 'vue';
 
 export default {
   name: "TranslationPage",
@@ -84,21 +85,29 @@ export default {
         this.loading = false;
       }, 1500);
     },
-    translate(e) {
-      if (e.key == "Enter") {
-        axios
-          .get(
-            `${
-              this.languageFrom
-            }-${
-              this.languageTo
-            }${
-              this.inputValue
-            }`
-          )
-          .then(response => {
-            this.wordTranslated = response.data.text[0];
-          });
+    async translate(e) {
+      if (e.key == "Enter") { 
+        const options = {
+          method: 'GET',
+          url: 'https://translated-mymemory---translation-memory.p.rapidapi.com/get',
+          params: {
+            langpair: 'fr|ja',
+            q: this.inputValue,
+            mt: '1',
+            onlyprivate: '0',
+            de: 'a@b.c'
+          },
+          headers: {
+            'X-RapidAPI-Key': '3286aba3bbmshdb3db9f1f13c193p1b7cbcjsnd0d2dce28b4f',
+            'X-RapidAPI-Host': 'translated-mymemory---translation-memory.p.rapidapi.com'
+          }
+        };
+        try {
+            const response = await axios.request(options);
+            this.wordTranslated = response.matches.translation;
+        } catch (error) {
+            console.error(error);
+        }
       }
     },
     updatePairFrom(index) {
